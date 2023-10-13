@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import "../app/font.module.css";
 .root {
   --clr-primary-bg: #380d41;
   --clr-primary: #f903aa;
@@ -49,4 +50,55 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero__image {
+  /* opacity: 0.61; */
+  background: #000;
+  background-image: url("/images/hero.png");
+  width: 100vw;
+  height: 840px;
+}
+
+.header {
+  color: var(--clr-primary);
+  text-align: center;
+  text-shadow:
+    8px 22px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: routhem;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 129px;
+}
+.hero__para {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__para__text {
+  color: #fff;
+  font-family: bespak;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.36px;
+  text-transform: uppercase;
+}
+.bg__line {
+  width: 150px;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    #a8620a 2%,
+    #e09519 20%,
+    #ffe581 48%,
+    #fcdc75 52%,
+    #f6c755 60%,
+    #eca522 71%,
+    #e8980f 75%,
+    #feb838 100%
+  );
 }

@@ -9,7 +9,7 @@ const ProductCard = () => {
   return (
     <div className={styles.card__container}>
       <div className={styles.card__header}>
-        <p className={styles.card__header}>RUBI</p>
+        <p className={styles.card__header__text}>RUBI - 128K</p>
         <Bookmark />
       </div>
       <div className={styles.card__image}>
@@ -22,8 +22,8 @@ const ProductCard = () => {
       </div>
       <p className={styles.card__item__name}>Headphone-128K</p>
       <button className={styles.card__button}>
-        <p>view</p>
-        <ArrowDark />
+        <p className={styles.card__button__para}>view</p>
+        <ArrowDark className={styles.card__button__img} />
       </button>
     </div>
   );

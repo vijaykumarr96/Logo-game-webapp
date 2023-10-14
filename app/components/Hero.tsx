@@ -13,7 +13,7 @@ const Hero = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [visible]);
   const heroText = "Logo Electronics";
 
   return (
@@ -22,7 +22,9 @@ const Hero = () => {
         {heroText.split("").map((word, index) => (
           <span
             key={index}
-            className={`${styles.hero__word} ${visible ? "visible" : ""}`}
+            className={`${styles.hero__word} ${
+              visible ? `${styles.visible}` : ""
+            }`}
             style={{
               animationDelay: `${index * 0.2}s`,
             }}

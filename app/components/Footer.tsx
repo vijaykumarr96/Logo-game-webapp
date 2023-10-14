@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
         <div className={styles.footer__links}>
           <h2>useful links</h2>
-          <ul>
+          <ul className={styles.footer__ul}>
             <li>Home</li>
             <li>Product</li>
             <li>About us</li>

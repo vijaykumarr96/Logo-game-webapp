@@ -162,7 +162,31 @@
   border-radius: 58px;
   border: 5px solid var(--pink, #920aa8);
   z-index: 1;
+  margin-bottom: 300px;
 }
+
+.flex__container:hover{
+  background: var(
+    --pink,
+    linear-gradient(
+      90deg,
+      #920aa8 2%,
+      #e019cc 20%,
+      #ff81e3 48%,
+      #fc75d6 52%,
+      #df55f6 60%,
+      #e822ec 71%,
+      #e80f91 75%,
+      #ed19d8 81.25%,
+      #fe3873 100%
+    )
+  );
+  border:none;
+}
+.flex__container:hover .view__all__btn{
+  font-size: 22px;
+}
+
 .view__all__btn {
   font-family: bespax;
   text-transform: uppercase;
@@ -235,15 +259,12 @@
   visibility: hidden;
 }
 .card__button {
+  display: block;
   width: 340px;
   height: 86px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   margin: 0 auto;
   border: none;
   border-radius: 50.5px;
-  cursor: pointer;
   background: var(
     --pink,
     linear-gradient(
@@ -259,6 +280,13 @@
       #fe3873 100%
     )
   );
+}
+.card__button > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  
 }
 .card__button:hover {
   background: var(--clr-white);
@@ -357,6 +385,8 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  list-style: none;
+  text-align: left;
 }
 .social__text {
   background-image: url("/images/layer-follow.png");

@@ -292,7 +292,7 @@
 }
 .card__button:hover .card__button__img {
   opacity: 0;
-  transform: translate(-250%, 0);
+  transform: translate(-150px, 0);
   transition:
     opacity 0.5s,
     transform 0.5s;
@@ -310,6 +310,9 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+/* Footer section  */
+
 .footer__container {
   position: relative;
   background-image: url("/images/footer-plain.png"),
@@ -318,6 +321,9 @@
   width: 100vw;
   height: 400px;
   background-color: #26072c;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .footer__text {
   background-color: var(--clr-primary-bg);
@@ -326,3 +332,73 @@
   padding: 40px;
   font-family: "Poppins", sans-serif;
 }
+.logo__container {
+  width: 413px;
+}
+.logo__para {
+  color: var(--clr-white);
+  text-align: justify;
+  font-family: Poppins;
+  font-size: 18.2px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 1.82px;
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+}
+.footer__links ul li {
+  color: #d4c9c9;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.social__text {
+  background-image: url("/images/layer-follow.png");
+  background-size: cover;
+  padding: 12px;
+  color: #fff;
+  font-family: routhem;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.36px;
+  text-transform: uppercase;
+}
+.social__container .facebookIcon , .instagramIcon , .twitterIcon, .youtubeIcon{
+  color: var(--clr-white);
+  margin-top: 20px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+.facebookIcon:hover {
+  color:#0866FF;
+  transform: scale(1.2);
+  transition:
+    transform 0.3s ease-in-out,
+}
+.instagramIcon:hover{
+  color:#d6249f;
+  transform: scale(1.2);
+  transition:
+    transform 0.3s ease-in-out,
+}
+.twitterIcon:hover{
+  color:#2962ff;
+  transform: scale(1.2);
+  transition:
+    transform 0.3s ease-in-out,
+}
+.youtubeIcon:hover{
+  color:#f00;
+  transform: scale(1.2);
+  transition:
+    transform 0.3s ease-in-out,
+}
+

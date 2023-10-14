@@ -4,6 +4,7 @@
   --clr-primary-bg: #380d41;
   --clr-primary: #f903aa;
   --clr-gray: #f2f2f2;
+  --clr-white: #ffffff;
 }
 
 /* navbar section  */
@@ -16,7 +17,7 @@
   background-color: var(--clr-primary-bg);
   box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25);
   font-size: 25px;
-  color: white;
+  color: var(--clr-white);
 }
 .listItems {
   display: flex;
@@ -59,6 +60,7 @@
 .hero__image {
   position: relative;
   background-image: url("/images/hero.png");
+  background-size: cover;
   width: 100vw;
   height: 840px;
   display: flex;
@@ -77,7 +79,7 @@
     0,
     0,
     0,
-    0.3
+    0.6
   ); /* Using rgba to set a semi-transparent black overlay */
   z-index: 0;
 }
@@ -194,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 .card__image {
   width: 80%;
@@ -205,6 +207,7 @@
 .card__item__name {
   text-align: center;
   padding-bottom: 40px;
+  font-size: 36px;
 }
 .card__button {
   width: 340px;
@@ -241,4 +244,20 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+.footer__container {
+  position: relative;
+  background-image: url("/images/footer-plain.png"),
+    url("/images/footer-dots.png");
+  background-size: cover;
+  width: 100vw;
+  height: 400px;
+  background-color: #26072c;
+}
+.footer__text {
+  background-color: var(--clr-primary-bg);
+  text-align: center;
+  color: var(--clr-white);
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
 }

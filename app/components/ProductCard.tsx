@@ -3,6 +3,7 @@ import styles from "../page.module.css";
 import Bookmark from "./icons/Bookmark";
 import Image from "next/image";
 import Arrow from "./icons/Arrow";
+import ArrowDark from "./icons/ArrowDark";
 
 const ProductCard = () => {
   return (
@@ -22,7 +23,7 @@ const ProductCard = () => {
       <p className={styles.card__item__name}>Headphone-128K</p>
       <button className={styles.card__button}>
         <p>view</p>
-        <Arrow />
+        <ArrowDark />
       </button>
     </div>
   );

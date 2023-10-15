@@ -9,7 +9,7 @@ import Button from "../ui_components/Button";
 import FilledBookmark from "./icons/FilledBookmark";
 import { ProductProps } from "./Products";
 
-const ProductCard = ({ brand, thumbnail, title }: Product) => {
+const ProductCard = ({ brand, thumbnail, title }: ProductProps) => {
   const [liked, setLiked] = useState(false);
   return (
     <div className={styles.card__container}>

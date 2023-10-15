@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "../page.module.css";
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/ProductCard";
 
 export interface ProductProps {
   id?: number; //optional property
@@ -16,9 +16,7 @@ const Products = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          "https://dummyjson.com/products/category/smartphones"
-        );
+        const response = await fetch("https://dummyjson.com/products");
         const data = await response.json();
         console.log(data);
         const productsArray: ProductProps[] = data.products;

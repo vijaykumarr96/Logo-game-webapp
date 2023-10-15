@@ -7,7 +7,6 @@
 }
 
 /* navbar section  */
-
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -534,4 +533,11 @@
 
 .dropdown__menu li:hover {
   background-color: lightgray;
+}
+
+.bottom__to__top {
+  position: absolute;
+  right: 100px;
+  bottom: 330px;
+  cursor: pointer;
 }

@@ -1,14 +1,30 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "../page.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <div className={styles.navbar}>
       <Image src={"logo.svg"} alt="logo" width={139} height={64} />
       <div className={styles.listItems}>
-        <p>Home</p>
-        <p>Products</p>
+        <Link href={`/`}>
+          <p className={`${pathname === "/" ? styles.navbtn__active : ""}`}>
+            Home
+          </p>
+        </Link>
+        <Link href={`/products`}>
+          <p
+            className={`${
+              pathname === "/products" ? styles.navbtn__active : ""
+            }`}
+          >
+            Products
+          </p>
+        </Link>
       </div>
     </div>
   );

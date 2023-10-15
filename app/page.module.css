@@ -376,6 +376,7 @@
   font-weight: 300;
   line-height: normal;
   letter-spacing: 1.82px;
+  padding-top: 30px;
 }
 .footer__links {
   width: 300px;
@@ -391,6 +392,7 @@
   font-family: routhem;
   color: #e019cc;
   text-transform: uppercase;
+  padding-bottom: 20px;
 }
 
 .footer__links ul li {

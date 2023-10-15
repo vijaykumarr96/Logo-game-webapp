@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
-@import "../app/font.module.css";
 .root {
   --clr-primary-bg: #380d41;
   --clr-primary: #f903aa;

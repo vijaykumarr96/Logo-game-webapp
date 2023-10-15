@@ -9,7 +9,9 @@ const Navbar = () => {
   const pathname = usePathname();
   return (
     <div className={styles.navbar}>
-      <Image src={"logo.svg"} alt="logo" width={139} height={64} />
+      <Link href={"/"}>
+        <Image src={"logo.svg"} alt="logo" width={139} height={64} />
+      </Link>
       <div className={styles.listItems}>
         <Link href={`/`}>
           <p className={`${pathname === "/" ? styles.navbtn__active : ""}`}>

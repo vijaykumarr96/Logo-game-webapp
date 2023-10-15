@@ -252,6 +252,15 @@
   padding-bottom: 40px;
   font-size: 36px;
 }
+
+.truncate__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .card__container:hover .card__item__name {
   visibility: hidden;
 }

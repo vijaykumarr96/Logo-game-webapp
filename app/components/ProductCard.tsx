@@ -23,7 +23,9 @@ const ProductCard = ({ brand, thumbnail, title }: ProductProps) => {
         <Image src={thumbnail} alt="card-item" width={311} height={189} />
         {/* <div className={!liked ? styles.heart__animation : ""} id="heart">❤️</div> */}
       </div>
-      <p className={styles.card__item__name}>{title}</p>
+      <p className={`${styles.card__item__name} ${styles.truncate__text}`}>
+        {title}
+      </p>
       <Button className={styles.card__button}>
         <div>
           <p className={styles.card__button__para}>view</p>

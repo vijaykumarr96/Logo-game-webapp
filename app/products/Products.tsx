@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../page.module.css";
 import ProductCard from "../components/ProductCard";
+import Dropdown from "../ui_components/Dropdown";
 
 export interface ProductProps {
   id?: number; //optional property
@@ -29,12 +30,10 @@ const Products = () => {
   }, []);
   return (
     <div className={styles.products__main__container}>
-      <h1
-        className={styles.header}
-        style={{ paddingBottom: "20px", WebkitTextStroke: "1px #e2e53c" }}
-      >
-        Products
-      </h1>
+      <div className={styles.dropdown__container}>
+        <p className={styles.view__all__btn}> &gt;&gt; All Product </p>
+        <Dropdown />
+      </div>
       <div className={styles.products__container}>
         {products.length === 0
           ? "Loadiingg....."

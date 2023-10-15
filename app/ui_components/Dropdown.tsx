@@ -39,7 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, []);
 
   const items = ["All products", "smartphones", "laptops", "skincare"];
-  console.log(selectedItem);
+  // console.log(selectedItem);
   return (
     <div ref={dropdownRef} className={styles.custom__dropdown}>
       <div

@@ -20,7 +20,7 @@ const Products = () => {
           "https://dummyjson.com/products/category/smartphones"
         );
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         const productsArray: ProductProps[] = data.products;
         setProducts(productsArray);
       } catch (error) {

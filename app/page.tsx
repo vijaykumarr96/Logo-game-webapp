@@ -10,7 +10,7 @@ export default function Home() {
         <Navbar />
       </nav>
       <section>
-        <Hero />
+        <Hero title="Logo Electronics" isContentNotVisible={false} />
       </section>
       <section>
         <Products />

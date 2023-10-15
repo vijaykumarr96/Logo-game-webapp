@@ -1,10 +1,18 @@
 import React, { useState, useRef } from "react";
 // import "./Dropdown.css"; // Create your own CSS styles
 import styles from "../page.module.css";
+import DownArrow from "../components/icons/ArrowDown";
 
-const Dropdown: React.FC = () => {
+export interface DropdownProps {
+  selectedItem: string | null;
+  setSelectedItem: (value: React.SetStateAction<string | null>) => void;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({
+  selectedItem,
+  setSelectedItem,
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleItemClick = (item: string) => {
@@ -22,7 +30,7 @@ const Dropdown: React.FC = () => {
     }
   };
 
-  // Attach a click event listener to the document to close the dropdown when clicking outside of it
+  // event listener to the document to close the dropdown when clicking outside of it
   React.useEffect(() => {
     document.addEventListener("click", closeDropdown);
     return () => {
@@ -30,8 +38,8 @@ const Dropdown: React.FC = () => {
     };
   }, []);
 
-  const items = ["Item 1", "Item 2", "Item 3"];
-
+  const items = ["All products", "smartphones", "laptops", "skincare"];
+  console.log(selectedItem);
   return (
     <div ref={dropdownRef} className={styles.custom__dropdown}>
       <div
@@ -40,7 +48,12 @@ const Dropdown: React.FC = () => {
         }`}
         onClick={toggleDropdown}
       >
-        {selectedItem || "All Products"}
+        <div style={{ display: "flex", gap: "8px" }}>
+          <p>{selectedItem || "All Products"}</p>
+          <p>
+            <DownArrow />
+          </p>
+        </div>
       </div>
       {isDropdownOpen && (
         <ul className={styles.dropdown__menu}>

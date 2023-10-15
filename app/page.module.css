@@ -200,7 +200,7 @@
 
 .products__main__container {
   background-color: #26072c;
-  padding-top: 170px;
+  padding-top: 40px;
 }
 .card__container {
   width: 397px;
@@ -472,6 +472,7 @@
 .dropdown__container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin: 0 120px;
   padding-bottom: 190px;
 }
@@ -481,7 +482,7 @@
   position: relative;
   width: 150px;
   height: auto;
-  background-color: pink;
+  background-color: var(--clr-gray);
   cursor: pointer;
   border-radius: 100px;
 }
@@ -489,9 +490,25 @@
 .dropdown__toggle {
   padding: 10px;
   border: 1px solid #000;
-  background-color: var(--clr-gray);
-  color: #f007d5;
   border-radius: 30px;
+  background: var(
+    --pink,
+    linear-gradient(
+      90deg,
+      #920aa8 2%,
+      #e019cc 20%,
+      #ff81e3 48%,
+      #fc75d6 52%,
+      #df55f6 60%,
+      #e822ec 71%,
+      #e80f91 75%,
+      #ed19d8 81.25%,
+      #fe3873 100%
+    )
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .dropdown__toggle.open {

@@ -5,7 +5,7 @@ import styles from "../page.module.css";
 const Dropdown: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleItemClick = (item: string) => {
     setSelectedItem(item);

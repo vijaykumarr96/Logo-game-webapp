@@ -8,8 +8,9 @@ import ArrowDark from "./icons/ArrowDark";
 import Button from "../ui_components/Button";
 import FilledBookmark from "./icons/FilledBookmark";
 import { ProductProps } from "./Products";
+import Link from "next/link";
 
-const ProductCard = ({ brand, thumbnail, title }: ProductProps) => {
+const ProductCard = ({ id, brand, thumbnail, title }: ProductProps) => {
   const [liked, setLiked] = useState(false);
   return (
     <div className={styles.card__container}>
@@ -28,7 +29,10 @@ const ProductCard = ({ brand, thumbnail, title }: ProductProps) => {
       </p>
       <Button className={styles.card__button}>
         <div>
-          <p className={styles.card__button__para}>view</p>
+          <Link href={`/products/${id}`}>
+            <p className={styles.card__button__para}>view</p>
+          </Link>
+
           <ArrowDark className={styles.card__button__img} />
         </div>
       </Button>

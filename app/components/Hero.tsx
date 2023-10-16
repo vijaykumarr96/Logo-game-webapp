@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../page.module.css";
 import Arrow from "./icons/Arrow";
+import Link from "next/link";
 
 export interface HeroProps {
   title: string;
@@ -52,7 +53,9 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
         }`}
       >
         <p className={styles.view__all__btn}>view all products</p>
-        <Arrow />
+        <Link href={"/products"}>
+          <Arrow />
+        </Link>
       </div>
     </div>
   );

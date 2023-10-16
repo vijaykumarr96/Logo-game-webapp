@@ -552,3 +552,37 @@
   bottom: 330px;
   cursor: pointer;
 }
+
+/* product-detail page*/
+
+.product__detail__container {
+  background-color: #26072c;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product__detail__container h1 {
+  color: var(--clr-white);
+  padding: 40px 0;
+}
+.product__image__container {
+  width: 1138px;
+  height: 436px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border-radius: 29.272px;
+  border: 4.018px solid var(--Gold, #a8620a);
+  background: #e4e4e4;
+  box-shadow: 0px 0px 29.27225px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.product__details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

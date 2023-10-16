@@ -4,7 +4,7 @@ import styles from "../page.module.css";
 import ProductCard from "./ProductCard";
 
 export interface ProductProps {
-  id?: number; //optional property
+  id: number; //optional property
   brand: string;
   thumbnail: string;
   title: string;
@@ -43,6 +43,7 @@ const Products = () => {
           : products.map((product) => {
               return (
                 <ProductCard
+                  id={product.id}
                   key={product.id}
                   brand={product.brand}
                   thumbnail={product.thumbnail}

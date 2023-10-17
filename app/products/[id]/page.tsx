@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import Star from "@/app/components/icons/Star";
+import EmptyStar from "@/app/components/icons/EmptyStar";
 
 interface ProductDetailsProps {
   title: string;
@@ -14,6 +16,7 @@ interface ProductDetailsProps {
   price: number;
   discountPercentage: number;
   images: string[];
+  rating: number;
 }
 const ProductDetailPage = () => {
   const productUrl = usePathname();
@@ -24,6 +27,7 @@ const ProductDetailPage = () => {
     price: 0,
     discountPercentage: 0,
     images: [],
+    rating: 0,
   });
   useEffect(() => {
     async function fetchProducts() {
@@ -37,6 +41,8 @@ const ProductDetailPage = () => {
     }
     fetchProducts();
   }, [productUrl]);
+  const rating = Math.floor(product.rating);
+  const emptyRating = 5 - rating;
   console.log(product);
   return (
     <div className={styles.root}>
@@ -50,9 +56,22 @@ const ProductDetailPage = () => {
             alt="product"
             width={375}
             height={375}
+            className={styles.img}
           />
           <div className={styles.product__details}>
             <h2>{product.title}</h2>
+            <div style={{ display: "flex", alignItems: "flex-end" }}>
+              {" "}
+              {new Array(rating).fill(<Star />).map((item) => {
+                return item;
+              })}
+              {new Array(emptyRating).fill(<EmptyStar />).map((item) => {
+                return item;
+              })}
+              <p style={{ paddingLeft: "10px" }}>
+                (<span>{Math.floor(Math.random() * 100 + 5)}</span>)
+              </p>
+            </div>
             <p>{product.description}</p>
             <p>Price: Rs {product.price}</p>
             <p>Discount: {product.discountPercentage}%</p>

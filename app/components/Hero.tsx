@@ -22,7 +22,6 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
       clearInterval(interval);
     };
   }, [visible]);
-  console.log(path);
   return (
     <div
       className={`${

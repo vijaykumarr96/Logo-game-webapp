@@ -51,6 +51,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+}
 
 /* hero section  */
 
@@ -224,7 +229,27 @@
   text-transform: uppercase;
   color: #ffffff;
 }
-
+@media (max-width: 768px) {
+  .header {
+    font-size: 36px;
+  }
+  .hero__para {
+    width: 400px;
+  }
+  .hero__para__text {
+    font-size: 10px;
+  }
+  .bg__line {
+    width: 50px;
+  }
+  .flex__container {
+    width: 320px;
+    height: 72px;
+  }
+  .view__all__btn {
+    font-size: 12px;
+  }
+}
 /* products section  */
 
 .products__main__container {

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../page.module.css";
 import Arrow from "./icons/Arrow";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export interface HeroProps {
   title: string;
@@ -10,6 +11,7 @@ export interface HeroProps {
 }
 const Hero = ({ title, isContentNotVisible }: HeroProps) => {
   const [visible, setVisible] = useState(false);
+  const path = usePathname();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,9 +22,15 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
       clearInterval(interval);
     };
   }, [visible]);
-
+  console.log(path);
   return (
-    <div className={styles.hero__image}>
+    <div
+      className={`${
+        path.includes("/products/")
+          ? styles.hero__image__productdetail
+          : styles.hero__image
+      } `}
+    >
       <h1 className={styles.header}>
         {title.split("").map((word, index) => (
           <span

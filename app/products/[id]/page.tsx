@@ -38,7 +38,7 @@ const ProductDetailPage = () => {
   return (
     <div className={styles.root}>
       <Navbar />
-      <Hero title="Product Details" isContentNotVisible={true} />
+      <Hero title="Product-Details" isContentNotVisible={true} />
       <div className={styles.product__detail__container}>
         <h1>{product.title}</h1>
         <div className={styles.product__image__container}>

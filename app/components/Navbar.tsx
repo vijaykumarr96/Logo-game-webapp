@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <Link href={"/"}>
-        <Image src={"logo.svg"} alt="logo" width={139} height={64} />
+        <Image src={"/logo.svg"} alt="logo" width={139} height={64} />
       </Link>
       <div className={styles.listItems}>
         <Link href={`/`}>

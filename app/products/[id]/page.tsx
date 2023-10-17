@@ -4,6 +4,7 @@ import styles from "@/app/page.module.css";
 import Hero from "@/app/components/Hero";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 interface ProductDetailsProps {
@@ -36,6 +37,7 @@ const ProductDetailPage = () => {
   }, [productUrl]);
   return (
     <div className={styles.root}>
+      <Navbar />
       <Hero title="Product Details" isContentNotVisible={true} />
       <div className={styles.product__detail__container}>
         <h1>{product.title}</h1>
@@ -54,7 +56,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

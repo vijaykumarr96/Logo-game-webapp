@@ -23,7 +23,7 @@ const Footer = () => {
           <BottomtoTop />
         </div>
         <div className={styles.logo__container}>
-          <Image src={"logo.svg"} alt="logo" width={139} height={64} />
+          <Image src={"/logo.svg"} alt="logo" width={139} height={64} />
           <p className={styles.logo__para}>
             lOGO is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry&apos;s standard dummy text ever

@@ -13,6 +13,7 @@ interface ProductDetailsProps {
   description: string;
   price: number;
   discountPercentage: number;
+  images: string[];
 }
 const ProductDetailPage = () => {
   const productUrl = usePathname();
@@ -22,6 +23,7 @@ const ProductDetailPage = () => {
     description: "",
     price: 0,
     discountPercentage: 0,
+    images: [],
   });
   useEffect(() => {
     async function fetchProducts() {
@@ -35,12 +37,13 @@ const ProductDetailPage = () => {
     }
     fetchProducts();
   }, [productUrl]);
+  console.log(product);
   return (
     <div className={styles.root}>
       <Navbar />
       <Hero title="Product-Details" isContentNotVisible={true} />
       <div className={styles.product__detail__container}>
-        <h1>{product.title}</h1>
+        <h1 className={styles.hero__para__text}>{product.title}</h1>
         <div className={styles.product__image__container}>
           <Image
             src={product.thumbnail}
@@ -54,6 +57,20 @@ const ProductDetailPage = () => {
             <p>Price: Rs {product.price}</p>
             <p>Discount: {product.discountPercentage}%</p>
           </div>
+        </div>
+        <div className={styles.multi__image__container}>
+          {product.images.map((image, i) => {
+            return (
+              <Image
+                key={i}
+                src={image}
+                alt="small-image"
+                width={100}
+                height={100}
+                className={styles.multi__images}
+              />
+            );
+          })}
         </div>
       </div>
       <Footer />

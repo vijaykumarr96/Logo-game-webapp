@@ -10,10 +10,16 @@ import FilledBookmark from "./icons/FilledBookmark";
 import { ProductProps } from "./Products";
 import Link from "next/link";
 
-const ProductCard = ({ id, brand, thumbnail, title }: ProductProps) => {
+const ProductCard = ({
+  id,
+  brand,
+  thumbnail,
+  title,
+  className,
+}: ProductProps) => {
   const [liked, setLiked] = useState(false);
   return (
-    <div className={styles.card__container}>
+    <div className={`${styles.card__container} ${className}`}>
       <div className={styles.card__header}>
         <p className={styles.card__header__text}>{brand}</p>
         <div style={{ cursor: "pointer" }} onClick={() => setLiked(!liked)}>

@@ -1,13 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "../page.module.css";
 import ProductCard from "./ProductCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "../page.module.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/swiper-bundle.css";
+import { Autoplay, Navigation } from "swiper/modules";
+import "../globals.css";
 
 export interface ProductProps {
-  id: number; //optional property
+  id: number;
   brand: string;
   thumbnail: string;
   title: string;
+  className?: string; //optional property
 }
 
 const Products = () => {
@@ -16,9 +24,7 @@ const Products = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          "https://dummyjson.com/products/category/smartphones"
-        );
+        const response = await fetch("https://dummyjson.com/products");
         const data = await response.json();
         // console.log(data);
         const productsArray: ProductProps[] = data.products;
@@ -31,6 +37,36 @@ const Products = () => {
   }, []);
   return (
     <div className={styles.products__main__container}>
+      <div className={styles.swiper__container}>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
+          navigation={true}
+          modules={[Autoplay, Navigation]}
+        >
+          {" "}
+          <div>
+            {products.map((product) => {
+              return (
+                <SwiperSlide key={product.id}>
+                  <ProductCard
+                    id={product.id}
+                    brand={product.brand}
+                    thumbnail={product.thumbnail}
+                    title={product.title}
+                    className={styles.swiper__cards}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </div>
+        </Swiper>
+      </div>
       <h1
         className={styles.header}
         style={{ paddingBottom: "20px", WebkitTextStroke: "1px #e2e53c" }}

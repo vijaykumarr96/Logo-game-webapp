@@ -62,17 +62,23 @@ const ProductDetailPage = () => {
             <h2>{product.title}</h2>
             <div style={{ display: "flex", alignItems: "flex-end" }}>
               {" "}
-              {new Array(rating).fill(<Star />).map((item) => {
-                return item;
-              })}
-              {new Array(emptyRating).fill(<EmptyStar />).map((item) => {
-                return item;
-              })}
+              {rating
+                ? new Array(rating).fill(<Star />).map((item) => {
+                    return item;
+                  })
+                : ""}
+              {emptyRating
+                ? new Array(emptyRating).fill(<EmptyStar />).map((item) => {
+                    return item;
+                  })
+                : ""}
               <p style={{ paddingLeft: "10px" }}>
                 (<span>{Math.floor(Math.random() * 100 + 5)}</span>)
               </p>
             </div>
-            <p>{product.description}</p>
+            <p className={styles.product__details__description}>
+              {product.description}
+            </p>
             <p>Price: Rs {product.price}</p>
             <p>Discount: {product.discountPercentage}%</p>
           </div>

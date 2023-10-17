@@ -610,10 +610,28 @@
   background: #e4e4e4;
   box-shadow: 0px 0px 29.27225px 0px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: 0 5vw;
 }
+
 .product__image__container .img {
   border: 4.018px solid var(--Gold, #a8620a);
 }
+.product__details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product__details__description {
+  color: #131313;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 2.572px;
+}
+
 .multi__image__container {
   width: 80vw;
   height: auto;
@@ -624,10 +642,4 @@
 .multi__images {
   height: 300px;
   width: 375px;
-}
-.product__details {
-  display: flex;
-  flex-direction: column;
-  margin-top: -175px;
-  gap: 20px;
 }

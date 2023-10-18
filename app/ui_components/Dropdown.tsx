@@ -41,30 +41,45 @@ const Dropdown: React.FC<DropdownProps> = ({
   const items = ["All products", "smartphones", "laptops", "skincare"];
   // console.log(selectedItem);
   return (
-    <div ref={dropdownRef} className={styles.custom__dropdown}>
-      <div
-        className={`${styles.dropdown__toggle} ${
-          isDropdownOpen ? styles.open : ""
-        }`}
-        onClick={toggleDropdown}
-      >
-        <div style={{ display: "flex", gap: "8px" }}>
-          <p>{selectedItem || "All Products"}</p>
-          <p>
-            <DownArrow />
-          </p>
+    <>
+      <div ref={dropdownRef} className={styles.custom__dropdown}>
+        <div
+          className={`${styles.dropdown__toggle} ${
+            isDropdownOpen ? styles.open : ""
+          }`}
+          onClick={toggleDropdown}
+        >
+          <div style={{ display: "flex", gap: "8px" }}>
+            <p>{selectedItem || "All Products"}</p>
+            <p>
+              <DownArrow />
+            </p>
+          </div>
         </div>
+        {isDropdownOpen && (
+          <ul className={styles.dropdown__menu}>
+            {items.map((item, index) => (
+              <li key={index} onClick={() => handleItemClick(item)}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {isDropdownOpen && (
-        <ul className={styles.dropdown__menu}>
+      <div className={styles.container__toggle__mobile}>
+        <ul className={styles.dropdown__toggle__mobile}>
           {items.map((item, index) => (
-            <li key={index} onClick={() => handleItemClick(item)}>
+            <li
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className={styles.dropdown__card__button}
+            >
               {item}
             </li>
           ))}
         </ul>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

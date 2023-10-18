@@ -322,7 +322,7 @@
 
 .products__main__container {
   background-color: #26072c;
-  padding-top: 300px;
+  padding-top: 30px;
   position: relative;
   z-index: 0;
 }
@@ -479,6 +479,9 @@
   .card__image {
     margin: 20px;
   }
+  .products__main__container {
+    padding-top: 40px;
+  }
 }
 
 /* Footer section  */
@@ -624,7 +627,7 @@
   justify-content: space-between;
   align-items: flex-end;
   margin: 0 120px;
-  padding-bottom: 190px;
+  padding-bottom: 100px;
 }
 
 /* Apply styles to the custom dropdown container */
@@ -635,6 +638,11 @@
   background-color: var(--clr-gray);
   cursor: pointer;
   border-radius: 100px;
+}
+@media (max-width: 768px) {
+  .custom__dropdown {
+    display: none;
+  }
 }
 
 .dropdown__toggle {
@@ -692,7 +700,9 @@
   bottom: 330px;
   cursor: pointer;
 }
-
+.container__toggle__mobile {
+  display: none;
+}
 /* footer media queries */
 @media (max-width: 768px) {
   .bottom__to__top img {
@@ -729,8 +739,77 @@
     background: none;
     padding-left: 40px;
   }
-}
+  .dropdown__container {
+    display: flex;
+    margin: 0;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 48px;
+  }
+  .container__toggle__mobile {
+    display: block;
+  }
+  .dropdown__toggle__mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
 
+  .dropdown__card__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 33px;
+    width: 340px;
+    height: 86px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 50.5px;
+    background-color: var(--clr-gray);
+    font-weight: 600;
+    color: #e822ec;
+  }
+  .dropdown__card__button:hover {
+    background: var(
+      --pink,
+      linear-gradient(
+        90deg,
+        #920aa8 2%,
+        #e019cc 20%,
+        #ff81e3 48%,
+        #fc75d6 52%,
+        #df55f6 60%,
+        #e822ec 71%,
+        #e80f91 75%,
+        #ed19d8 81.25%,
+        #fe3873 100%
+      )
+    );
+    color: var(--clr-white);
+  }
+
+  .all__product__text {
+    font-size: 38px;
+  }
+}
+.all__product__text {
+  padding: 30px 0;
+  width: 100%;
+  padding: 0 20px;
+  font-family: bespax;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #ffffff;
+}
 /* product detail page styles*/
 
 .product__detail__container {

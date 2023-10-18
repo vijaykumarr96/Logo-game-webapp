@@ -46,7 +46,10 @@ const Products = () => {
   return (
     <div className={styles.products__main__container}>
       <div className={styles.dropdown__container}>
-        <p className={styles.view__all__btn}> &gt;&gt; All Product </p>
+        <p className={styles.all__product__text}>
+          {" "}
+          &gt;&gt; {selectedItem || "All Products"}{" "}
+        </p>
         <Dropdown
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}

@@ -30,9 +30,44 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-.swiper {
-  margin-left: 150px !important;
+.swiper-button-prev::after {
+  position: absolute;
+  content: url("/arrow-left.svg") !important;
+  top: 150px !important;
+  left: 100px;
+}
+.swiper-button-next::after {
+  position: absolute;
+  top: 150px !important;
+  right: 100px;
+  content: url("/arrow-right.svg") !important;
+}
+@media (max-width: 768px) {
+  .swiper-wrapper {
+    width: 1300px !important;
+    /* display: flex !important; */
+    padding-left: 56px;
+  }
+}
+@media (min-width: 768px) {
+  .swiper {
+    margin-left: 150px !important;
+  }
+  .swiper-button-prev::after {
+    position: absolute;
+    content: url("/arrow-left.svg") !important;
+    top: 200px !important;
+    left: 520px;
+  }
+  .swiper-button-next::after {
+    position: absolute;
+    top: 200px !important;
+    right: 580px;
+    content: url("/arrow-right.svg") !important;
+  }
+  .swiper-wrapper {
+    flex-direction: row !important;
+  }
 }
 .swiper-button-next {
   display: none;
@@ -44,20 +79,8 @@ a {
 .swiper-slide {
   background-position: right;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 300px !important;
+  height: 300px !important;
 }
 
 /* swiper buttons styling for product details page  */
-.swiper-button-prev::after {
-  position: absolute;
-  content: url("/arrow-left.svg") !important;
-  top: 200px !important;
-  left: 520px;
-}
-.swiper-button-next::after {
-  position: absolute;
-  top: 200px !important;
-  right: 580px;
-  content: url("/arrow-right.svg") !important;
-}

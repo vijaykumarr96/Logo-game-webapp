@@ -55,7 +55,7 @@ const ProductDetailPage = () => {
       <Navbar />
       <Hero title="Product-Details" isContentNotVisible={true} />
       <div className={styles.product__detail__container}>
-        <h1 className={styles.hero__para__text}>{product.title}</h1>
+        <h1 className={styles.product__h1__text}>{product.title}</h1>
         <div className={styles.product__image__container}>
           <Image
             src={product.thumbnail}
@@ -85,8 +85,12 @@ const ProductDetailPage = () => {
             <p className={styles.product__details__description}>
               {product.description}
             </p>
-            <p>Price: Rs {product.price}</p>
-            <p>Discount: {product.discountPercentage}%</p>
+            <p className={styles.product__details__para}>
+              Price: Rs {product.price}
+            </p>
+            <p className={styles.product__details__para}>
+              Discount: {product.discountPercentage}%
+            </p>
           </div>
         </div>
         <Swiper

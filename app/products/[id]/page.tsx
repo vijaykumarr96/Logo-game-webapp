@@ -9,7 +9,12 @@ import Footer from "@/app/components/Footer";
 import Star from "@/app/components/icons/Star";
 import EmptyStar from "@/app/components/icons/EmptyStar";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+
 interface ProductDetailsProps {
+  id: number;
   title: string;
   thumbnail: string;
   description: string;
@@ -21,6 +26,7 @@ interface ProductDetailsProps {
 const ProductDetailPage = () => {
   const productUrl = usePathname();
   const [product, setProduct] = useState<ProductDetailsProps>({
+    id: 0,
     title: "",
     thumbnail: "",
     description: "",
@@ -29,6 +35,7 @@ const ProductDetailPage = () => {
     images: [],
     rating: 0,
   });
+  let randomNumber = Math.floor(Math.random() * 66 + 5);
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -43,7 +50,6 @@ const ProductDetailPage = () => {
   }, [productUrl]);
   const rating = Math.floor(product.rating);
   const emptyRating = 5 - rating;
-  console.log(product);
   return (
     <div className={styles.root}>
       <Navbar />
@@ -73,7 +79,7 @@ const ProductDetailPage = () => {
                   })
                 : ""}
               <p style={{ paddingLeft: "10px" }}>
-                (<span>{Math.floor(Math.random() * 100 + 5)}</span>)
+                (<span>{randomNumber}</span>)
               </p>
             </div>
             <p className={styles.product__details__description}>
@@ -83,20 +89,31 @@ const ProductDetailPage = () => {
             <p>Discount: {product.discountPercentage}%</p>
           </div>
         </div>
-        <div className={styles.multi__image__container}>
-          {product.images.map((image, i) => {
-            return (
-              <Image
-                key={i}
-                src={image}
-                alt="small-image"
-                width={100}
-                height={100}
-                className={styles.multi__images}
-              />
-            );
-          })}
-        </div>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={10}
+          centeredSlides={true}
+          loop={true}
+          navigation={true}
+          modules={[Navigation]}
+          className={styles.product__images__swiper}
+        >
+          <div className={styles.multi__image__container}>
+            {product.images.map((image) => {
+              return (
+                <SwiperSlide key={product.id}>
+                  <Image
+                    src={image}
+                    alt="small-image"
+                    width={100}
+                    height={100}
+                    className={styles.multi__images}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </div>
+        </Swiper>
       </div>
       <Footer />
     </div>

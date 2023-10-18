@@ -736,17 +736,12 @@
   letter-spacing: 2.572px;
 }
 
-.multi__image__container {
-  width: 80vw;
+/* .multi__image__container {
   height: auto;
   margin: 0 auto;
   display: flex;
   gap: 100px;
-}
-.multi__images {
-  height: 300px;
-  width: 375px;
-}
+} */
 
 /* swiper container auto scroll */
 .swiper__container {
@@ -760,4 +755,18 @@
   height: 300px;
   border-radius: 0%;
   overflow: hidden;
+}
+
+.product__images__swiper {
+  width: 90vw;
+  height: 450px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 100px;
+}
+
+.multi__images {
+  height: 288px;
+  width: 245px;
+  border: 4.018px solid var(--Gold, #a8620a);
 }

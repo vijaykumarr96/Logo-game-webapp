@@ -59,7 +59,7 @@ const Products = () => {
                     brand={product.brand}
                     thumbnail={product.thumbnail}
                     title={product.title}
-                    className={styles.swiper__cards}
+                    className={`${styles.swiper__cards} `}
                   />
                 </SwiperSlide>
               );

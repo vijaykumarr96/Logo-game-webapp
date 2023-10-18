@@ -3,7 +3,7 @@ import React from "react";
 
 const DownArrow = () => {
   return (
-    <Image src={"down-arrow.svg"} alt="down-arrow" width={20} height={10} />
+    <Image src={"/down-arrow.svg"} alt="down-arrow" width={20} height={10} />
   );
 };
 

@@ -7,7 +7,7 @@ interface arrowprops {
 const ArrowDark = ({ className }: arrowprops) => {
   return (
     <Image
-      src={"arrow-right-dark.svg"}
+      src={"/arrow-right-dark.svg"}
       alt="arrow"
       width={47}
       height={47}

@@ -5,6 +5,11 @@ import Arrow from "./icons/Arrow";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../ui_components/Button";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Hamburger from "./icons/Hamburger";
+import HamburgerActive from "./icons/HamburgerActive";
+import Navbar from "./Navbar";
 
 export interface HeroProps {
   title: string;
@@ -12,6 +17,8 @@ export interface HeroProps {
 }
 const Hero = ({ title, isContentNotVisible }: HeroProps) => {
   const [visible, setVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
   const path = usePathname();
 
   useEffect(() => {
@@ -23,6 +30,7 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
       clearInterval(interval);
     };
   }, [visible]);
+  console.log(isOpen);
   return (
     <div
       className={`${
@@ -70,6 +78,86 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
           </Link>
         </div>
       </Button>
+
+      <div className={styles.hamburger__icon}>
+        <Hamburger handleClick={() => setIsOpen(!isOpen)} />
+      </div>
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.div className={styles.hamburger__menu}>
+            <motion.div
+              initial={{
+                x: -200,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.4,
+                type: "spring",
+                bounce: 0.3,
+              }}
+              exit={{ x: 300, opacity: 0 }}
+            >
+              <motion.div
+                initial={{
+                  x: -200,
+                  opacity: 0,
+                }}
+                animate={{
+                  x: 0,
+                  opacity: 1,
+                }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.4,
+                  type: "spring",
+                  bounce: 0.3,
+                }}
+                exit={{ x: 300, opacity: 0 }}
+                className={styles.active__container}
+              >
+                <div className={styles.hamburger__close_icon}>
+                  <HamburgerActive handleClick={() => setIsOpen(!isOpen)} />
+                </div>
+
+                {/* <Navbar /> */}
+                <div className={styles.active__container}>
+                  <Link href={"/"}>
+                    <Image
+                      src={"/logo.svg"}
+                      alt="logo"
+                      width={139}
+                      height={64}
+                    />
+                  </Link>
+                  <div
+                    className={styles.listItems}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      fontSize: "20px",
+                      padding: "10px",
+                    }}
+                  >
+                    <Link href={`/`}>
+                      <p className={styles.navbtn__active}>Home</p>
+                    </Link>
+                    <Link href={`/products`}>
+                      <p className={styles.navbtn__active}>Products</p>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

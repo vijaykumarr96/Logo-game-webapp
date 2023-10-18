@@ -112,6 +112,40 @@
   ); /* Using rgba to set a semi-transparent black overlay */
   z-index: 0;
 }
+.hamburger__icon {
+  position: absolute;
+  top: 47px;
+  right: 24px;
+}
+.hamburger__close_icon {
+  position: absolute;
+  top: 47px;
+  right: 24px;
+}
+.hamburger__menu {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: -1px;
+  background-color: var(--clr-primary-bg);
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+.active__container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 101;
+}
+@media (min-width: 768px) {
+  .hamburger__icon,
+  .hamburger__menu {
+    display: none;
+  }
+}
 
 .hero__image__productdetail > .header {
   font-size: 40px;
@@ -276,7 +310,7 @@
   .bg__line {
     width: 50px;
   }
-  .flex__container {
+  .flex__container > div :link {
     width: 320px;
     height: 72px;
   }
@@ -820,6 +854,13 @@
   .product__details__para {
     font-size: 20px;
   }
-  .product__images__swiper {
+  /* .product__images__swiper {
+  } */
+  /* .swiper__container {
+    width: 100vw;
   }
+  .swiper-button-prev::after {
+    display: none !important;
+    z-index: -1 !important; */
+  /* } */
 }

@@ -184,24 +184,37 @@
     #feb838 100%
   );
 }
+
 .flex__container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 483px;
-  height: 82px;
-  flex-shrink: 0;
+  display: block;
   border-radius: 58px;
+  flex-shrink: 0;
+  background: padding-box;
   border: 5px solid var(--pink, #920aa8);
   z-index: 1;
   margin-bottom: 300px;
+  position: relative;
+  overflow: hidden;
 }
-
-.flex__container:hover {
+.flex__container > div :link {
+  width: 483px;
+  height: 82px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 58px;
+}
+.flex__container > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: var(
     --pink,
     linear-gradient(
-      90deg,
+      to right,
       #920aa8 2%,
       #e019cc 20%,
       #ff81e3 48%,
@@ -213,28 +226,28 @@
       #fe3873 100%
     )
   );
-  border: none;
-  /* transition: background-color 1s ease-out 2s; */
-  transition: opacity 0.5s, ease-in 0.5s;
-  /* animation: bgscroll 1s ease-out 0.5s infinite forwards linear; */
+  transition: all 0.3s ease 0.1s;
+}
+/* transition of bg radient color  */
+.flex__container > div:hover::before {
+  left: 0;
 }
 .flex__container:hover .view__all__btn {
   font-size: 22px;
-  /* transition: background-color 2s ease-in 2s; */
 }
-@keyframes bgscroll {
-  0% {
-    background: none;
-  }
-  10% {
-    background: #e80f91;
-  }
-  80% {
-    background: #fe3873;
-  }
-  100% {
-    background: none;
-  }
+.flex__container > div :link:hover {
+  background-position: -100% 0;
+}
+.flex__container:hover .flex__container__img {
+  opacity: 0;
+  transform: translateX(200px, 0);
+  transition: opacity 0.5s, ease-in 0.5s;
+}
+
+.view__all__btn,
+.flex__container__img {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 2;
 }
 
 .view__all__btn {
@@ -278,14 +291,6 @@
   padding-top: 300px;
   position: relative;
   z-index: 0;
-}
-
-/* swiper container auto scroll */
-.swiper__container {
-  position: absolute;
-  top: -100px;
-  right: 0;
-  width: 80vw;
 }
 
 .card__container {
@@ -741,6 +746,14 @@
 .multi__images {
   height: 300px;
   width: 375px;
+}
+
+/* swiper container auto scroll */
+.swiper__container {
+  position: absolute;
+  top: -100px;
+  right: 0;
+  width: 80vw;
 }
 .swiper__cards {
   width: 300px;

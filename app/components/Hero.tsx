@@ -4,6 +4,7 @@ import styles from "../page.module.css";
 import Arrow from "./icons/Arrow";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Button from "../ui_components/Button";
 
 export interface HeroProps {
   title: string;
@@ -54,16 +55,21 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
         <p className={styles.hero__para__text}>The techies you love</p>
         <p className={styles.bg__line}></p>
       </div>
-      <div
+
+      <Button
         className={`${styles.flex__container} ${
           isContentNotVisible ? styles.not__visible : ""
         }`}
       >
-        <p className={styles.view__all__btn}>view all products</p>
-        <Link href={"/products"}>
-          <Arrow />
-        </Link>
-      </div>
+        <div>
+          <Link href={"/products"}>
+            <p className={styles.view__all__btn}>view all products</p>
+            <div className={styles.flex__container__img}>
+              <Arrow />
+            </div>
+          </Link>
+        </div>
+      </Button>
     </div>
   );
 };

@@ -16,6 +16,8 @@ export interface ProductProps {
   thumbnail: string;
   title: string;
   className?: string; //optional property
+  titleClassName?: string;
+  isVisible?: Boolean;
 }
 
 const Products = () => {
@@ -24,7 +26,9 @@ const Products = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("https://dummyjson.com/products");
+        const response = await fetch(
+          "https://dummyjson.com/products/category/sunglasses"
+        );
         const data = await response.json();
         // console.log(data);
         const productsArray: ProductProps[] = data.products;
@@ -53,13 +57,18 @@ const Products = () => {
           <div>
             {products.map((product) => {
               return (
-                <SwiperSlide key={product.id}>
+                <SwiperSlide
+                  key={product.id}
+                  className={`${styles.swiper__btn}`}
+                >
                   <ProductCard
                     id={product.id}
                     brand={product.brand}
                     thumbnail={product.thumbnail}
                     title={product.title}
                     className={`${styles.swiper__cards} `}
+                    isVisible={false}
+                    titleClassName={styles.small__text}
                   />
                 </SwiperSlide>
               );
@@ -69,7 +78,11 @@ const Products = () => {
       </div>
       <h1
         className={styles.header}
-        style={{ paddingBottom: "20px", WebkitTextStroke: "1px #e2e53c" }}
+        style={{
+          paddingBottom: "20px",
+          WebkitTextStroke: "1px #e2e53c",
+          paddingTop: "200px",
+        }}
       >
         Products
       </h1>

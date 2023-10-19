@@ -16,6 +16,8 @@ const ProductCard = ({
   thumbnail,
   title,
   className,
+  isVisible = true,
+  titleClassName,
 }: ProductProps) => {
   const [liked, setLiked] = useState(false);
   return (
@@ -23,25 +25,33 @@ const ProductCard = ({
       <div className={styles.card__header}>
         <p className={styles.card__header__text}>{brand}</p>
         <div style={{ cursor: "pointer" }} onClick={() => setLiked(!liked)}>
-          {liked ? <FilledBookmark /> : <Bookmark />}
+          {isVisible ? liked ? <FilledBookmark /> : <Bookmark /> : null}
         </div>
       </div>
       <div className={styles.card__image}>
-        <Image src={thumbnail} alt="card-item" width={311} height={189} />
+        {!isVisible ? (
+          <Image src={thumbnail} alt="card-item" width={250} height={100} />
+        ) : (
+          <Image src={thumbnail} alt="card-item" width={311} height={189} />
+        )}
         {/* <div className={!liked ? styles.heart__animation : ""} id="heart">❤️</div> */}
       </div>
-      <p className={`${styles.card__item__name} ${styles.truncate__text}`}>
+      <p
+        className={`${styles.card__item__name} ${styles.truncate__text} ${titleClassName}`}
+      >
         {title}
       </p>
-      <Button className={styles.card__button}>
-        <div>
-          <Link href={`/products/${id}`}>
-            <p className={styles.card__button__para}>view</p>
-          </Link>
+      {isVisible ? (
+        <Button className={styles.card__button}>
+          <div>
+            <Link href={`/products/${id}`}>
+              <p className={styles.card__button__para}>view</p>
+            </Link>
 
-          <ArrowDark className={styles.card__button__img} />
-        </div>
-      </Button>
+            <ArrowDark className={styles.card__button__img} />
+          </div>
+        </Button>
+      ) : null}
     </div>
   );
 };

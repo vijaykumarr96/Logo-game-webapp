@@ -10,7 +10,7 @@ import Star from "@/app/components/icons/Star";
 import EmptyStar from "@/app/components/icons/EmptyStar";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 
 interface ProductDetailsProps {
@@ -69,13 +69,13 @@ const ProductDetailPage = () => {
             <div style={{ display: "flex", alignItems: "flex-end" }}>
               {" "}
               {rating
-                ? new Array(rating).fill(<Star />).map((item) => {
-                    return item;
+                ? new Array(rating).fill(<Star />).map((item, i) => {
+                    return <div key={"first" + i}>{item}</div>;
                   })
                 : ""}
               {emptyRating
-                ? new Array(emptyRating).fill(<EmptyStar />).map((item) => {
-                    return item;
+                ? new Array(emptyRating).fill(<EmptyStar />).map((item, i) => {
+                    return <div key={"second" + i}>{item}</div>;
                   })
                 : ""}
               <p style={{ paddingLeft: "10px" }}>

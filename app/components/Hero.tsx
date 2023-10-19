@@ -30,7 +30,6 @@ const Hero = ({ title, isContentNotVisible }: HeroProps) => {
       clearInterval(interval);
     };
   }, [visible]);
-  console.log(isOpen);
   return (
     <div
       className={`${

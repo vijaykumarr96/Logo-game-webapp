@@ -44,8 +44,7 @@ a {
 }
 @media (max-width: 768px) {
   .swiper-wrapper {
-    width: 1300px !important;
-    /* display: flex !important; */
+    width: 100% !important;
     padding-left: 56px;
   }
 }
@@ -57,12 +56,12 @@ a {
     position: absolute;
     content: url("/arrow-left.svg") !important;
     top: 200px !important;
-    left: 520px;
+    left: 450px;
   }
   .swiper-button-next::after {
     position: absolute;
     top: 200px !important;
-    right: 580px;
+    right: 520px;
     content: url("/arrow-right.svg") !important;
   }
   .swiper-wrapper {
@@ -71,9 +70,6 @@ a {
 }
 .swiper-button-next {
   display: none;
-}
-.swiper-button-prev {
-  color: red;
 }
 
 .swiper-slide {

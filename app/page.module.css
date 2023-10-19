@@ -814,7 +814,6 @@
 
 .product__detail__container {
   background-color: #26072c;
-  height: 1400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -933,13 +932,7 @@
   .product__details__para {
     font-size: 20px;
   }
-  /* .product__images__swiper {
-  } */
-  /* .swiper__container {
-    width: 100vw;
-  }
-  .swiper-button-prev::after {
-    display: none !important;
-    z-index: -1 !important; */
-  /* } */
+}
+.small__text {
+  font-size: 20px;
 }

@@ -937,3 +937,13 @@
 .small__text {
   font-size: 20px;
 }
+.product__button .flex__container {
+  display: none;
+}
+@media (max-width: 768px) {
+  .product__button .flex__container {
+    display: block;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+}

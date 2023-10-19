@@ -9,6 +9,9 @@ import "swiper/css/navigation";
 import "swiper/swiper-bundle.css";
 import { Autoplay, Navigation } from "swiper/modules";
 import "../globals.css";
+import Link from "next/link";
+import Arrow from "./icons/Arrow";
+import Button from "../ui_components/Button";
 
 export interface ProductProps {
   id: number;
@@ -100,6 +103,18 @@ const Products = () => {
                 />
               );
             })}
+        <div className={` ${styles.product__button} `}>
+          <Button className={`${styles.flex__container}`}>
+            <div>
+              <Link href={"/products"}>
+                <p className={styles.view__all__btn}>view all products</p>
+                <div className={styles.flex__container__img}>
+                  <Arrow />
+                </div>
+              </Link>
+            </div>
+          </Button>
+        </div>
       </div>
     </div>
   );

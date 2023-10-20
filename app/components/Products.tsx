@@ -12,6 +12,7 @@ import "../globals.css";
 import Link from "next/link";
 import Arrow from "./icons/Arrow";
 import Button from "../ui_components/Button";
+import useFetchProducts from "../utils/hooks/useFetch";
 
 export interface ProductProps {
   id: number;
@@ -23,25 +24,17 @@ export interface ProductProps {
   isVisible?: Boolean;
 }
 
+const url = "https://dummyjson.com/products/category/sunglasses";
 const Products = () => {
-  const [products, setProducts] = useState<ProductProps[]>([]);
+  const { products, error, loading } = useFetchProducts(url);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(
-          "https://dummyjson.com/products/category/sunglasses"
-        );
-        const data = await response.json();
-        // console.log(data);
-        const productsArray: ProductProps[] = data.products;
-        setProducts(productsArray);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchProducts();
-  }, []);
+  if (loading) {
+    return <div>Loading Products.....</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className={styles.products__main__container}>
       <div className={styles.swiper__container}>
@@ -59,24 +52,25 @@ const Products = () => {
         >
           {" "}
           <div>
-            {products.map((product) => {
-              return (
-                <SwiperSlide
-                  key={product.id}
-                  className={`${styles.swiper__btn}`}
-                >
-                  <ProductCard
-                    id={product.id}
-                    brand={product.brand}
-                    thumbnail={product.thumbnail}
-                    title={product.title}
-                    className={`${styles.swiper__cards} `}
-                    isVisible={false}
-                    titleClassName={styles.small__text}
-                  />
-                </SwiperSlide>
-              );
-            })}
+            {products &&
+              products.map((product) => {
+                return (
+                  <SwiperSlide
+                    key={product.id}
+                    className={`${styles.swiper__btn}`}
+                  >
+                    <ProductCard
+                      id={product.id}
+                      brand={product.brand}
+                      thumbnail={product.thumbnail}
+                      title={product.title}
+                      className={`${styles.swiper__cards} `}
+                      isVisible={false}
+                      titleClassName={styles.small__text}
+                    />
+                  </SwiperSlide>
+                );
+              })}
           </div>
         </Swiper>
       </div>
@@ -91,19 +85,18 @@ const Products = () => {
         Products
       </h1>
       <div className={styles.products__container}>
-        {products.length === 0
-          ? "Loadiingg....."
-          : products.map((product) => {
-              return (
-                <ProductCard
-                  id={product.id}
-                  key={product.id}
-                  brand={product.brand}
-                  thumbnail={product.thumbnail}
-                  title={product.title}
-                />
-              );
-            })}
+        {products &&
+          products.map((product) => {
+            return (
+              <ProductCard
+                id={product.id}
+                key={product.id}
+                brand={product.brand}
+                thumbnail={product.thumbnail}
+                title={product.title}
+              />
+            );
+          })}
         <div className={` ${styles.product__button} `}>
           <Button className={`${styles.flex__container}`}>
             <div>

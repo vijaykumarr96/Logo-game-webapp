@@ -4,6 +4,7 @@ import styles from "../page.module.css";
 import ProductCard from "../components/ProductCard";
 import Dropdown from "../ui_components/Dropdown";
 import { DropdownProps } from "../ui_components/Dropdown";
+import useFetchProducts from "../utils/hooks/useFetch";
 
 export interface ProductProps {
   id: number; //optional property
@@ -11,24 +12,13 @@ export interface ProductProps {
   thumbnail: string;
   title: string;
 }
-
+const url = "https://dummyjson.com/products";
 const Products = () => {
-  const [products, setProducts] = useState<ProductProps[]>([]);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [filteredProducts, setFilteredProcts] = useState<ProductProps[]>([]);
+  const { products, error, loading } = useFetchProducts(url);
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch("https://dummyjson.com/products");
-        const data = await response.json();
-        const productsArray: ProductProps[] = data.products;
-        setProducts(productsArray);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchProducts();
     async function fetchProductsCategory() {
       try {
         const response = await fetch(
@@ -43,6 +33,12 @@ const Products = () => {
     }
     fetchProductsCategory();
   }, [selectedItem]);
+  if (loading) {
+    return <div>Loading Products.....</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
   return (
     <div className={styles.products__main__container}>
       <div className={styles.dropdown__container}>
@@ -56,9 +52,7 @@ const Products = () => {
         />
       </div>
       <div className={styles.products__container}>
-        {products.length === 0
-          ? "Loadiingg....."
-          : !selectedItem || selectedItem === "All products"
+        {products && (!selectedItem || selectedItem === "All products")
           ? products.map((product) => {
               return (
                 <ProductCard

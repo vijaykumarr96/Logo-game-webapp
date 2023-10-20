@@ -103,19 +103,20 @@ const ProductDetailPage = () => {
           className={styles.product__images__swiper}
         >
           <div className={styles.multi__image__container}>
-            {product.images.map((image) => {
-              return (
-                <SwiperSlide key={product.id}>
-                  <Image
-                    src={image}
-                    alt="small-image"
-                    width={100}
-                    height={100}
-                    className={styles.multi__images}
-                  />
-                </SwiperSlide>
-              );
-            })}
+            {product &&
+              product.images.map((image, i) => {
+                return (
+                  <SwiperSlide key={"image" + i}>
+                    <Image
+                      src={image}
+                      alt="small-image"
+                      width={100}
+                      height={100}
+                      className={styles.multi__images}
+                    />
+                  </SwiperSlide>
+                );
+              })}
           </div>
         </Swiper>
       </div>

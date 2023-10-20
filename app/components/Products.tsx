@@ -24,7 +24,7 @@ export interface ProductProps {
   isVisible?: Boolean;
 }
 
-const url = "https://dummyjson.com/products/category/sunglasses";
+const url = "https://dummyjson.com/products/category/smartphones";
 const Products = () => {
   const { products, error, loading } = useFetchProducts(url);
 

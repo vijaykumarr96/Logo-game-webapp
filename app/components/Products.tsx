@@ -55,6 +55,7 @@ const Products = () => {
           }}
           navigation={true}
           modules={[Autoplay, Navigation]}
+          className="mySwiper"
         >
           {" "}
           <div>

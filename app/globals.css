@@ -79,4 +79,15 @@ a {
   height: 300px !important;
 }
 
-/* swiper buttons styling for product details page  */
+/* swiper buttons styling for auto scrolling products */
+.mySwiper .swiper-button-prev::after {
+  position: absolute;
+  content: url("/arrow-left.svg") !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 10;
+}
+
+.mySwiper .swiper-button-next::after {
+  display: none;
+}

@@ -32,7 +32,7 @@ const Products = () => {
     return <div>Loading Products.....</div>;
   }
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="error__container">Error: {error.message}</div>;
   }
 
   return (
